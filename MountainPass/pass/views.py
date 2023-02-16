@@ -4,6 +4,9 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import PerevalAdded
 from .serializers import *
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+
 
 
 # Create your views here.
@@ -28,6 +31,18 @@ class PassageAPIView(viewsets.ViewSet):
             return serializer.save()
         else:
             return self.serializer_error_response(serializer.errors)
+
+    @swagger_auto_schema(manual_parameters=[
+        openapi.Parameter('user_email', openapi.IN_QUERY, description="user e-mail", type=openapi.TYPE_STRING)])
+    def get_records_by_user(self, request, **kwargs):
+        try:
+            user = Users.objects.get(email=request.GET['user_email'])
+            passages = PerevalAdded.objects.filter(user=user)
+            data = PassAddedSerializer(passages, many=True).data
+            return Response(data, status=200)
+        except:
+            # passages = {}
+            return Response({'message': 'No records found'}, status=200)
 
 
     def post(self, request):

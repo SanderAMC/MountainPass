@@ -19,10 +19,10 @@ class Coords(models.Model):
         db_table = 'pereval_coords'
 
 class Level(models.Model):
-    winter_level = models.CharField(max_length=3, blank=True)
-    summer_level = models.CharField(max_length=3, blank=True)
-    autumn_level = models.CharField(max_length=3, blank=True)
-    spring_level = models.CharField(max_length=3, blank=True)
+    winter = models.CharField(max_length=3, blank=True)
+    summer = models.CharField(max_length=3, blank=True)
+    autumn = models.CharField(max_length=3, blank=True)
+    spring = models.CharField(max_length=3, blank=True)
 
     class Meta:
         db_table = 'pereval_level'

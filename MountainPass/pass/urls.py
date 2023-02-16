@@ -4,6 +4,6 @@ from .views import PassageAPIView
 
 
 urlpatterns = [
-    path('submitData/', PassageAPIView.as_view({'post': 'post'})),
+    path('submitData/', PassageAPIView.as_view({'post': 'post', })),
 ]
 

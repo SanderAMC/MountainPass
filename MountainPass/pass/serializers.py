@@ -28,7 +28,7 @@ class ImagesSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class PerevalAddedSerializer(serializers.ModelSerializer):
+class PassAddedSerializer(serializers.ModelSerializer):
     user = UsersSerializer(read_only=True)
     coords = CoordsSerializer(read_only=True)
     level = LevelSerializer(read_only=True)

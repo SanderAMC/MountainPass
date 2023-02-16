@@ -1,0 +1,40 @@
+{
+    "beauty_title": "пер.",
+    "title": "Пхия",
+    "other_titles": "Триев",
+    "connect": "0",
+    "add_time": "2023-02-16 00:20:20",
+    "user": {
+        "email": "aaaa@aaaa.com",
+        "fam": "Иванов",
+        "name": "Сергей",
+        "otc": "Петрович",
+        "phone": "+7 456 123-45-67"
+    },
+    "coords": {
+        "latitude": "12.3456",
+        "longitude": "7.1525",
+        "height": "1700"
+    },
+    "level": {
+        "winter": "2А",
+        "summer": "1А*",
+        "autumn": "1А",
+        "spring": "2A*"
+    },
+    "images": [
+        {
+            "data": "<картинка1>",
+            "title": "Основание"
+        },
+        {
+            "data": "<картинка>",
+            "title": "Седло"
+        },
+        {
+            "data": "<картинка2>",
+            "title": "Обрыв"
+        }
+
+    ]
+}

@@ -32,6 +32,7 @@ class PassageAPIView(viewsets.ViewSet):
         else:
             return self.serializer_error_response(serializer.errors)
 
+
     @swagger_auto_schema(manual_parameters=[
         openapi.Parameter('user_email', openapi.IN_QUERY, description="user e-mail", type=openapi.TYPE_STRING)])
     def get_records_by_user(self, request, **kwargs):
@@ -45,6 +46,7 @@ class PassageAPIView(viewsets.ViewSet):
             return Response({'message': 'No records found'}, status=200)
 
 
+    @swagger_auto_schema(request_body=PassAddedSerializer)
     def post(self, request):
         try:
             data = request.data
@@ -84,4 +86,13 @@ class PassageAPIView(viewsets.ViewSet):
 
         except Exception as e:
             return Response({'message': str(e), 'id': None}, status=500)
+
+    @swagger_auto_schema(metods=['get'])
+    def get_one(self, request, **kwargs):
+        try:
+            passage = PerevalAdded.objects.get(pk=kwargs['pk'])
+            data = PassAddedSerializer(passage).data
+            return Response(data, status=200)
+        except:
+            return Response({'message': "There's no such record", 'id': None}, status=400)
 

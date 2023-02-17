@@ -120,7 +120,7 @@ class PassageAPIView(viewsets.ViewSet):
                         return self.serializer_error_response(serializer.errors, 'state')
                 return Response({'message': 'Success', 'state': 1}, status=200)
             else:
-                return Response({'message': "It's not a NEW status of the record.", 'state': 0}, status=400)
+                return Response({'message': "It's not a NEW status of the record", 'state': 0}, status=400)
         except:
             return Response({'message': "There's no such record", 'state': 0}, status=400)
 

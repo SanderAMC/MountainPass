@@ -27,12 +27,15 @@
 
 <h2>##### Описание методов API</h2>
 <h3>Метод</h3>
-```sh
-POST /submitData/ 
+
+``` sh
+POST /submitData/
 ```
 
 принимает JSON в теле запроса с информацией о перевале. <br> 
+
 Пример JSON:
+
 ``` sh
 {
     "beauty_title": "пер.",
@@ -98,6 +101,7 @@ POST /submitData/
 ```
 
 <h3>Метод</h3>
+
 ``` sh
 GET /submitData/<id>
 ```
@@ -159,6 +163,7 @@ GET /submitData/<id>
 ```
 
 <h3>Метод</h3>
+
 ```sh
 PATCH /submitData/<id>
 ```
@@ -177,6 +182,7 @@ PATCH /submitData/<id>
 ```
 
 <h3>Метод</h3>
+
 ```sh
 GET /submitData/?user_email=email
 ```

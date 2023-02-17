@@ -108,7 +108,7 @@ class PassageAPIView(viewsets.ViewSet):
                 images = data.pop('images')
                 serializers = []
                 serializers.append(CoordsSerializer(Coords.objects.get(id=passage.coords_id), data=data.pop('coords')))
-                serializers.append(LevelSerializer(Level.objects.get(id=passage.level_id), data=data.pop('levels')))
+                serializers.append(LevelSerializer(Level.objects.get(id=passage.levels_id), data=data.pop('level')))
                 serializers.append((PassAddedSerializer(passage, data=data)))
                 for image in images:
                     image['pereval'] = passage.id
@@ -118,7 +118,7 @@ class PassageAPIView(viewsets.ViewSet):
                         serializer.save()
                     else:
                         return self.serializer_error_response(serializer.errors, 'state')
-                return Response({'message': None, 'state': 1}, status=200)
+                return Response({'message': 'Success', 'state': 1}, status=200)
             else:
                 return Response({'message': "It's not a NEW status of the record.", 'state': 0}, status=400)
         except:
